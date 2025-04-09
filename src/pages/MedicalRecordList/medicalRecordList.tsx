@@ -78,23 +78,23 @@ function MedicalRecordList() {
     pageIndex = 1,
     pageSize = 10,
     searchInput = searchVisitIdRef.current,
-    aig_type = String(filterType),
+    aig_type = String(filterType)
   ) => {
     console.log(
-      `MedicalRecordList getMedicalRecordList pageIndex: ${pageIndex}, pageSize: ${pageSize}, searchInput: ${searchInput}`,
+      `MedicalRecordList getMedicalRecordList pageIndex: ${pageIndex}, pageSize: ${pageSize}, searchInput: ${searchInput}`
     );
     try {
       const response = await service_getMedicalRecordList(
         pageIndex,
         pageSize,
         searchInput,
-        aig_type,
+        aig_type
       );
       console.log(
         "MedicalRecordList getMedicalRecordList:",
         { pageIndex, pageSize, searchInput },
         "response:",
-        response,
+        response
       );
       aliCloudLog(
         `MedicalRecordList页面 getMedicalRecordList 
@@ -104,7 +104,7 @@ function MedicalRecordList() {
                 response.status=${response?.status},
                 response.data.total=${response?.data?.total},
                 response.data.data=${JSON.stringify(response?.data?.data)},` +
-          state.accountName,
+          state.accountName
       );
       setTotalRecords(response.data.total);
       const transformedData = transformData(response.data);
@@ -119,7 +119,7 @@ function MedicalRecordList() {
       console.error("MedicalRecordList getMedicalRecordList error:", error);
       aliCloudLog(
         `MedicalRecordList页面 getMedicalRecordList error: ${JSON.stringify(error)}` +
-          state.accountName,
+          state.accountName
       );
     }
   };
@@ -130,7 +130,7 @@ function MedicalRecordList() {
       pollingRef.current = setInterval(() => {
         console.log(
           "MedicalRecordList页面 startListPolling currentPage:",
-          curPage,
+          curPage
         );
         getMedicalRecordList(curPage, 10, searchVisitIdRef.current, type);
       }, redoDuration);
@@ -277,7 +277,7 @@ function MedicalRecordList() {
         // 检查当前页是否还有其他数据
         const currentPage = getCurrentPage();
         const currentDataLength = dataList.filter(
-          (item) => item.key !== record.key,
+          (item) => item.key !== record.key
         ).length;
         if (currentDataLength === 0 && currentPage > 1) {
           // 如果当前页没有数据且不是第一页，则跳转到前一页
@@ -290,7 +290,7 @@ function MedicalRecordList() {
         message.error(`任务${record.index} 删除失败`);
         aliCloudLog(
           `MedicalRecordList页面 任务${record.index} 删除失败 response: ${JSON.stringify(response)}` +
-            state.accountName,
+            state.accountName
         );
       }
     } catch (error) {
@@ -298,7 +298,7 @@ function MedicalRecordList() {
       message.error("网络错误，删除失败");
       aliCloudLog(
         `MedicalRecordList页面 handleDelete error: ${JSON.stringify(error)}` +
-          state.accountName,
+          state.accountName
       );
     }
   };
@@ -307,7 +307,7 @@ function MedicalRecordList() {
     console.log(`对 ${record.index} 执行 ${action}`);
     aliCloudLog(
       `MedicalRecordList页面 handleAction 对编号 ${record.index} 执行 ${action}` +
-        state.accountName,
+        state.accountName
     );
     // 这里添加具体的逻辑，例如调用 API 或更改数据状态等
     if (action === "查看") {

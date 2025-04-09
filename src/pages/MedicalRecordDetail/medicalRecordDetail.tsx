@@ -89,7 +89,7 @@ const MedicalRecordDetail = () => {
 
   // 模型得分
   const [modelScoresDict, setModelScoresDict] = useState<ScoreEntity>(
-    {} as ScoreEntity,
+    {} as ScoreEntity
   );
   const [modelTotalScore, setModelTotalScore] = useState(0);
 
@@ -131,7 +131,7 @@ const MedicalRecordDetail = () => {
   useEffect(() => {
     const sum = Object.values(modelScoresDict).reduce(
       (pre, cur) => pre + cur,
-      0,
+      0
     );
     setModelTotalScore(sum);
   }, [modelScoresDict]);
@@ -140,7 +140,7 @@ const MedicalRecordDetail = () => {
   useEffect(() => {
     const sum = Object.values(doctorRecordScoresDict).reduce(
       (pre, cur) => pre + cur,
-      0,
+      0
     );
     setdDctorRecordTotalScore(sum);
   }, [doctorRecordScoresDict]);
@@ -230,7 +230,7 @@ const MedicalRecordDetail = () => {
     // 7 把个人史、婚育史、家族史三项合并评分
     // 7.1 抽出婚育史、家族史、个人史
     const mixedThreeList: MedicalRecordVO[] = list.filter(
-      (v: MedicalRecordVO) => MixedThreeRecords.includes(v.en_name),
+      (v: MedicalRecordVO) => MixedThreeRecords.includes(v.en_name)
     );
     const recordVO: MedicalRecordVO = {
       en_name: KeyOfMixedThree,
@@ -241,12 +241,12 @@ const MedicalRecordDetail = () => {
 
     // 7.2 过滤
     const filteredList: MedicalRecordVO[] = list.filter(
-      (v: MedicalRecordVO) => !MixedThreeRecords.includes(v.en_name),
+      (v: MedicalRecordVO) => !MixedThreeRecords.includes(v.en_name)
     );
 
     // 7.3 插入位置
     const insertIndex = filteredList.findIndex(
-      (v: MedicalRecordVO) => v.en_name === "auxiliary_examination",
+      (v: MedicalRecordVO) => v.en_name === "auxiliary_examination"
     );
     filteredList.splice(insertIndex, 0, recordVO);
 
@@ -307,7 +307,7 @@ const MedicalRecordDetail = () => {
   const eventSourceRef = useRef<EventSource>();
   const initSSE = () => {
     eventSourceRef.current = new EventSource(
-      `${import.meta.env.VITE_EVENT_SOURCE_BASE_URL}/v1/stream/msg/status`,
+      `${import.meta.env.VITE_EVENT_SOURCE_BASE_URL}/v1/stream/msg/status`
     );
     eventSourceRef.current.onopen = () => {
       aliCloudLog("MedicalRecordDetail sse onopen" + state.accountName);
@@ -319,13 +319,13 @@ const MedicalRecordDetail = () => {
       aliCloudLog(
         "MedicalRecordDetail sse connecttime" +
           JSON.parse(evt.data) +
-          state.accountName,
+          state.accountName
       );
     });
     eventSourceRef.current.onmessage = async (evt) => {
       const value = JSON.parse(evt.data);
       aliCloudLog(
-        "MedicalRecordDetail sse onmessage" + value + state.accountName,
+        "MedicalRecordDetail sse onmessage" + value + state.accountName
       );
       const { aig_emr_task_id, event, status } = value;
       if (
@@ -363,13 +363,11 @@ const MedicalRecordDetail = () => {
   /** 模型评分更新到后端 */
   const updateModelScoresToServer = async (
     task_id: string,
-    scores: ScoreEntity,
+    scores: ScoreEntity
   ) => {
     const rsp = await service_updateAIScore(task_id, scores);
     aliCloudLog(
-      "MedicalRecordDetail service_updateAIScore rsp=" +
-        rsp +
-        state.accountName,
+      "MedicalRecordDetail service_updateAIScore rsp=" + rsp + state.accountName
     );
     // if (rsp.status === 200) {
     //     message.success('模型得分更新成功');
@@ -402,13 +400,13 @@ const MedicalRecordDetail = () => {
   /** 更新医生病历评分 */
   const updateDoctorScoresToServer = async (
     taskId: string,
-    scores: ScoreEntity,
+    scores: ScoreEntity
   ) => {
     const rsp = await service_updateDoctorRecordScore(taskId, scores);
     aliCloudLog(
       "MedicalRecordDetail service_updateDoctorRecordScore rsp=" +
         rsp +
-        state.accountName,
+        state.accountName
     );
     if (rsp.status === 200) {
       // message.success('医生病历评分成功');
@@ -453,12 +451,12 @@ const MedicalRecordDetail = () => {
           upload_oss_url,
           taskId,
           originFileObj as File,
-          type as string,
+          type as string
         );
       aliCloudLog(
         "MedicalRecordDetail 上传 docx 是否成功 =" +
           rsp_uploadWordMedicalRecord_flag +
-          state.accountName,
+          state.accountName
       );
       if (rsp_uploadWordMedicalRecord_flag) {
         setLoading(false);
@@ -561,7 +559,7 @@ const MedicalRecordDetail = () => {
                     </React.Fragment>
                   );
                 },
-                [],
+                []
               )}
             {modelRecordGenerationStatus ===
               MedicalRecordGenerationStatus.Doing && (
@@ -715,7 +713,7 @@ const MedicalRecordDetail = () => {
                     </React.Fragment>
                   );
                 },
-                [],
+                []
               )}
             </Flex>
           </Card>
