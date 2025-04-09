@@ -1,0 +1,38 @@
+{
+    "root": true,
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:sonarjs/recommended",
+        "plugin:unicorn/recommended"
+    ],
+    "plugins": ["sonarjs", "unicorn", "import"],
+    "rules": {
+        "max-lines-per-function": [
+            "warn",
+            { "max": 10, "skipComments": true, "skipBlankLines": true }
+        ],
+        "complexity": ["warn", { "max": 10 }],
+        "no-extra-bind": "error",
+        "unicorn/prevent-abbreviations": [
+            "error",
+            {
+                "replacements": {
+                    "obj": false,
+                    "get": false
+                }
+            }
+        ],
+        "id-length": ["warn", { "min": 2, "exceptions": ["i", "x", "y"] }],
+        "consistent-return": "error",
+        "arrow-body-style": ["error", "as-needed"],
+        "prefer-template": "warn",
+        "no-nested-ternary": "warn",
+        "func-names": ["warn", "as-needed"],
+        "sonarjs/no-identical-expressions": "warn"
+    }
+}

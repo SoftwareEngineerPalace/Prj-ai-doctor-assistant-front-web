@@ -1,0 +1,145 @@
+// .detail-page {
+//     overflow: auto;
+//     height: 100%;
+//     -ms-overflow-style: none;
+//     /* IE 和 Edge */
+//     scrollbar-width: none;
+//     /* Firefox */
+//     padding-left: 24px;
+//     padding-right: 24px;
+// }
+
+/* Webkit 核心的浏览器 */
+.detail-page::-webkit-scrollbar {
+    display: none;
+}
+
+.detail-page {
+    overflow-y: auto;
+    height: 100%;
+    -ms-overflow-style: none;
+    /* IE 和 Edge */
+    scrollbar-width: thin;
+    /* Firefox */
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5ff;
+    // max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px;
+
+    .record-wrapper__header {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 24px;
+
+        .left-group {
+            display: flex;
+            align-items: center;
+
+            .btn-back {
+                border-color: #339352;
+                color: #339352;
+            }
+        }
+    }
+
+    .record-wrapper__content {
+        display: grid;
+        grid-template-columns: 208px minmax(0, 1fr);
+        margin-top: 18px;
+        grid-template-rows: auto auto auto;
+        grid-row-gap: 12px;
+        grid-column-gap: 12px;
+
+        .audio-local-path-wrapper {
+            border: 1px solid #b7eb8f;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #f6ffed;
+        }
+
+        .three {
+            grid-row: 2 / 4;
+        }
+
+        .card-player {
+            .btn-audio {
+                transform: scale(1.8);
+                color: #00967a;
+                cursor: pointer;
+                margin-right: 30px;
+
+                &.btn-backward {
+                    transform: rotate(90deg) scale(1.8);
+                }
+
+                &.btn-play {
+                    transform: scale(2.5);
+                }
+
+                &.btn-pause {
+                    transform: scale(2.5);
+                }
+
+                &.btn-forward {
+                    transform: rotate(270deg) scale(1.8);
+                }
+            }
+        }
+
+        .card-wave {
+            .wave-container {
+                display: flex;
+                justify-content: space-between;
+                padding: 24px 0;
+            }
+
+            .info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                margin-right: 16px;
+                font-size: 1rem;
+
+                .label-doctor {
+                    color: rgb(200, 0, 200);
+                }
+
+                .label-patient {
+                    color: rgb(0, 200, 200);
+                }
+            }
+
+            .top {
+                display: flex;
+                align-items: center;
+                margin-bottom: 36px;
+            }
+
+            .icon {
+                color: #00967a;
+                font-size: 24px;
+                margin-left: 16px;
+            }
+
+            .waveform-container {
+                flex: 1;
+                overflow-x: auto;
+                // border: 1px solid #333;
+
+                :deep(.scroll) {
+                    scrollbar-width: thin;
+                }
+            }
+        }
+    }
+}

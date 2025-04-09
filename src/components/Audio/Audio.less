@@ -1,0 +1,27 @@
+.audio-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .audio-player {
+        width: 200px;
+    }
+    /* 针对 WebKit 浏览器，如 Chrome 和 Safari */
+    .audio-player::-webkit-media-controls-timeline {
+        display: none !important;
+    }
+
+    /* 针对 Firefox */
+    .audio-player::-moz-progress-bar {
+        display: none !important;
+    }
+
+    /* 针对 IE 和 Edge */
+    .audio-player::-ms-track {
+        display: none !important;
+    }
+
+    .audio-text {
+        margin-left: 20px;
+    }
+}

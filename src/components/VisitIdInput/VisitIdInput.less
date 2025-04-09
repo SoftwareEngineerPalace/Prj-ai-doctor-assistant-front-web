@@ -1,0 +1,60 @@
+.visitinput {
+    display: flex;
+    // grid-template-rows: auto auto;
+    // grid-template-columns: auto 1fr;
+    align-items: center;
+
+    .ant-form-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .items-container {
+        display: flex;
+        flex-direction: column;
+        // gap: 6px; /* 在每个Form.Item之间添加间隔 */
+    }
+
+    .label {
+        text-align: right;
+        color: black;
+    }
+
+    .input-field {
+        width: 100%;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        grid-column: 1 / -1;
+        width: 100%;
+
+        .register-button {
+            width: 100%;
+            color: #fff;
+            background: #339352;
+            border: none;
+        }
+
+        .register-button[disabled] {
+            border-color: #d9d9d9;
+            color: rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0);
+        }
+
+        /* 修改 hover 效果 */
+        .register-button:hover,
+        .register-button:focus {
+            color: #fff;
+            background: #339352;
+        }
+
+        // 禁用状态没有hover效果
+        .register-button[disabled]:hover,
+        .register-button[disabled]:focus {
+            color: rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0);
+            // border-color: #d9d9d9;
+        }
+    }
+}

@@ -1,0 +1,50 @@
+.headerWrapper {
+    width: 100%;
+    // position: fixed;
+    display: flex;
+    // top: 0;
+    // left: 0;
+    // position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: #339352;
+    height: 64px;
+    z-index: 1000;
+    padding-left: @first-gap;
+    padding-right: 32px; // 注意这里包括右侧纵向滚动条的轨道宽度
+
+    .headerInnerWrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+
+    .ant-qrcode {
+        padding: 6px;
+    }
+
+    .groupAvatar {
+        display: flex;
+        font-size: 16px;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 8px;
+        padding: @third-gap;
+        padding-left: @second-gap;
+        padding-right: @second-gap;
+
+        .doctor-name {
+            margin-left: @third-gap;
+            color: white;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        &:hover {
+            background-color: #54ad70;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+.sideMenuWrapper {
+    width: 160px;
+    // height: calc(100% - 64px);
+    // position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ffffff; /* Replace with the actual color value */
+    border-right: 1px solid @first-frame-color;
+    padding-top: 4px;
+    flex-shrink: 0;
+
+    .li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #000000e0;
+        width: 148px;
+        height: 42px;
+        font-size: 14px;
+        border-radius: 8px;
+        margin-bottom: 4px;
+
+        &:hover {
+            background-color: #efefef;
+            text-decoration: none;
+        }
+    }
+
+    .selected {
+        background-color: #efefef;
+        color: #339352;
+    }
+}

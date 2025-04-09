@@ -1,0 +1,129 @@
+/* Webkit 核心的浏览器 */
+.record-page::-webkit-scrollbar {
+    display: none;
+}
+
+.recordboard-wrapper {
+    overflow: auto;
+    height: 100%;
+    scrollbar-width: thin; 
+    -ms-overflow-style: none;
+    padding-left: 24px;
+    padding-right: 24px;
+    flex: 1;
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    // margin-top: 64px;
+    background-color: #f5f5f5ff;
+    height: 100%;
+    // 居中显示
+    // max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    .record-wrapper__header {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 24px;
+
+        .left-group {
+            display: flex;
+            align-items: center;
+
+            .btn-back {
+                border-color: #339352;
+                color: #339352;
+            }
+        }
+
+        .btn-save {
+            background-color: #339352;
+            color: white;
+        }
+
+        .btn-save[disabled] {
+            border-color: #d9d9d9;
+            color: rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0);
+        }
+
+        /* 修改 hover 效果 */
+        .btn-save:hover,
+        .btn-save:focus {
+            color: #fff;
+            background: #339352;
+        }
+
+        // 禁用状态没有hover效果
+        .btn-save[disabled]:hover,
+        .btn-save[disabled]:focus {
+            color: rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0);
+            border-color: #d9d9d9;
+        }
+    }
+
+    .record-wrapper__content {
+        margin-top: 24px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        .content-left {
+            flex-shrink: 0;
+        }
+        .card-userInput {
+            flex-shrink: 0;
+            // min-width: 240px;
+        }
+
+        .card-collectinfo {
+            margin-top: 16px;
+        }
+
+        .content-right {
+            margin-left: 24px;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+
+            .content-right-wave {
+                margin-top: 16px;
+
+                .time {
+                    width: 100%;
+                    text-align: center;
+                    font-size: 16px;
+                }
+
+                .wave {
+                    width: 100%;
+                    flex: 1;
+                }
+            }
+
+            .session-chat-card {
+                margin-top: 24px;
+
+                .session-chat {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 0;
+
+                    .title {
+                        height: 40px;
+                        background-color: #f0fdf0;
+                        color: black;
+                        display: flex;
+                        justify-content: flex-start;
+                        padding: 8px 24px;
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+        }
+    }
+}

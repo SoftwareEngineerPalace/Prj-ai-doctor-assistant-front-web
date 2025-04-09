@@ -1,0 +1,213 @@
+.edit-wrapper {
+    padding: @first-gap;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+    scrollbar-width: thin; 
+
+    .edit-wrapper__header {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .left-group {
+            display: flex;
+            align-items: center;
+            color: @theme-color;
+            font-weight: 500;
+
+            .title-visit-id {
+                margin-left: @second-gap;
+            }
+
+            .visit-id {
+                margin-left: @third-gap;
+            }
+        }
+
+        .btn-download:hover {
+            border: @theme-color 1px solid;
+        }
+    }
+
+    .edit-wrapper__inner {
+        width: 100%;
+        height: 100%;
+    }
+
+    .audio_wrapper {
+        display: flex;
+        color: #000;
+        margin-top: @first-gap;
+
+        .audio_detail,
+        .audio_play {
+            padding: @first-gap;
+            background-color: #fff;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .audio_detail {
+            // width: 25%;
+            width: 320px;
+            margin-right: @first-gap;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .audio_play {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .card-detail-wrapper {
+        display: flex;
+        flex-direction: row;
+        margin-top: @first-gap;
+        overflow: hidden;
+        // flex: 1;
+        height: calc(100vh - 532px - 2px); // 64+48+32+48+340, -2全屏不会显示滚动条
+        min-height: 350px;
+
+        .ant-card .ant-card-head {
+            margin-bottom: 24px;
+        }
+
+        .medical-card {
+            // width: 25%;
+            width: 320px;
+            flex-shrink: 0;
+            margin-right: @first-gap;
+            padding: @first-gap;
+
+            .medical-card-body {
+                height: 100%;
+                overflow-y: auto;
+                padding-bottom: 48px;
+
+                /* 自定义滚动条的整体样式 */
+                &::-webkit-scrollbar {
+                    width: 4px;
+                }
+
+                /* 自定义滚动条的轨道样式 */
+                &::-webkit-scrollbar-track {
+                    background: #f1f1f1;
+                }
+
+                /* 自定义滚动条的滑块样式 */
+                &::-webkit-scrollbar-thumb {
+                    background: #ccc;
+                    border-radius: 2px;
+                }
+
+                /* 当鼠标悬停在滚动条滑块上时的样式 */
+                &::-webkit-scrollbar-thumb:hover {
+                    background: #aaa;
+                }
+
+                .ant-upload,
+                .ant-upload-list {
+                    margin-bottom: @second-gap;
+                }
+
+                // .btn-upload {
+                //     border: 0;
+                //     background: none;
+                //     color: #ccc;
+                //     font-size: 32px;
+                // }
+
+                .medical-image-list {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    // .ant-image {
+                    //     object-fit: contain;
+                    //     margin-right: @second-gap;
+                    //     margin-bottom: @second-gap;
+                    // }
+
+                    .image-wrapper {
+                        position: relative;
+                        margin-bottom: @second-gap;
+
+                        // max-width: 45%;
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        // 图片删除按钮样式
+                        .del-button {
+                            font-size: 20px;
+                            color: #fff;
+                            position: absolute;
+                            top: 8px;
+                            right: 8px;
+                            border: none;
+                            cursor: pointer;
+                            padding: 8px;
+                            background: red;
+                            border-radius: 30px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .dialogue-card {
+            flex: 1;
+            padding: @first-gap;
+        }
+    }
+}
+
+.ant-card .ant-card-head {
+    min-height: auto;
+    padding: 0;
+    border-bottom: none;
+}
+
+.ant-btn-primary.ant-btn-solid {
+    background-color: @theme-color;
+}
+
+.ant-btn-primary.ant-btn-solid:not(:disabled):not(.ant-btn-disabled):hover {
+    background-color: @theme-color;
+}
+
+.ant-btn-default.ant-btn-outlined:not(:disabled):not(.ant-btn-disabled):hover,
+.ant-btn-default.ant-btn-dashed:not(:disabled):not(.ant-btn-disabled):hover {
+    color: @theme-color;
+    border-color: @theme-color;
+}
+
+.ant-btn-primary {
+    background-color: #339352;
+    box-shadow: none;
+}
+
+.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+    background: #339352;
+}
+
+.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+    color: #339352;
+    background-color: #fff;
+    border-color: #339352;
+}
+
+button:focus,
+button:focus-visible,
+.ant-btn-primary:focus {
+    outline: none !important;
+}

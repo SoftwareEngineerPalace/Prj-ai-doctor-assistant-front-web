@@ -1,0 +1,92 @@
+.login-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .container-test {
+        margin: 1em;
+        padding: 1em;
+        width: 10em;
+        padding: 1em;
+        display: grid;
+        // border: 1px solid red;
+        background-color: yellow;
+        grid-template-columns: repeat(auto-fill, 3em);
+        grid-template-columns: repeat(auto-fit, 3em);
+
+        .sub {
+            background-color: aqua;
+            border: 1px solid red;
+            vertical-align: middle;
+        }
+    }
+
+    .card-login {
+        box-shadow:
+            0px 6px 16px -8px rgba(0, 0, 0, 0.08),
+            0px 9px 28px 0px rgba(0, 0, 0, 0.05),
+            0px 12px 48px 16px rgba(0, 0, 0, 0.03);
+    }
+
+    .ant-checkbox-checked .ant-checkbox-inner {
+        background-color: @theme-color;
+        border-color: @theme-color;
+    }
+
+    .ant-checkbox-input:hover {
+        background-color: @theme-color;
+        border-color: @theme-color;
+    }
+
+    .btn-login {
+        width: 100%;
+        box-shadow: 0px 0px 4px 0px rgba(187, 187, 187, 0.5);
+        border-radius: 8px;
+        font-weight: 400;
+
+        &.ant-btn-primary:hover {
+            border-color: #2a7b45; // TODO 不优雅，以后再说
+        }
+    }
+
+    .ant-form-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .hbox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: @first-gap;
+    }
+
+    .title-container {
+        font-size: @first-gap;
+        margin-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        // font-size: 20px;
+
+        .title-main {
+            font-weight: 500;
+            color: @theme-color;
+        }
+
+        .title-sub {
+            font-size: 20px;
+            color: @theme-color;
+        }
+    }
+
+    .card-footer {
+        font-size: @first-font-size;
+        margin-top: @second-gap;
+        display: flex;
+        justify-content: space-around;
+    }
+}

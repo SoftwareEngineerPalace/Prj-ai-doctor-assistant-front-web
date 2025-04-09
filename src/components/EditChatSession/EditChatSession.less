@@ -1,0 +1,76 @@
+.session-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow-y: auto;
+    flex-direction: column;
+    background-color: white;
+
+    /* 自定义滚动条的整体样式 */
+    &::-webkit-scrollbar {
+        width: 4px;
+        /* 设置滚动条的宽度 */
+    }
+
+    /* 自定义滚动条的轨道样式 */
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        /* 设置轨道颜色 */
+    }
+
+    /* 自定义滚动条的滑块样式 */
+    &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        /* 设置滑块颜色 */
+        border-radius: 2px;
+        /* 设置滑块圆角（可选） */
+    }
+
+    /* 当鼠标悬停在滚动条滑块上时的样式 */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #aaa;
+        /* 设置鼠标悬停时的滑块颜色 */
+    }
+
+    .chat {
+        display: flex;
+        flex-direction: column;
+        padding: @first-gap @first-gap @third-gap 0;
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        .header-group {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 8px;
+
+            .range_time {
+                color: #ccc;
+                margin-left: 16px;
+            }
+        }
+
+        .edit-group {
+            width: 100%;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            color: black;
+
+            .icon {
+                font-size: 24px;
+                margin-right: 16px;
+            }
+
+            .message {
+                width: 100%;
+                display: flex;
+            }
+        }
+    }
+}

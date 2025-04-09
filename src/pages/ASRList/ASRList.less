@@ -1,0 +1,69 @@
+.asrlist-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 24px 24px 24px 24px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+
+    .card-header {
+        margin-top: 24px;
+
+        .card-header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .form-search {
+                display: flex;
+
+                .form-search-item {
+                    margin-right: @second-gap;
+                }
+            }
+
+            .ant-form-item {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .card-wrapper {
+        margin-top: 24px;
+
+        .audio-list-row {
+            .ant-table-cell {
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .ant-pagination.ant-table-pagination {
+        display: flex;
+        justify-content: space-between;
+        font-variant-numeric: tabular-nums;
+        font-family: Arial, sans-serif;
+    }
+
+    .ant-pagination-total-text {
+        flex: none;
+        margin-right: auto;
+        color: gray;
+    }
+
+    .numeric {
+        font-variant-numeric: tabular-nums;
+        font-family: Arial, sans-serif;
+    }
+
+    a {
+        color: #2d7a3a;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &.visited {
+            color: #84b58b;
+        }
+    }
+}
