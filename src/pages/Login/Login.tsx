@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {
+  memo,
+  useContext,
+  useEffect,
+  useState,
+  useTransition,
+} from "react";
 import "./Login.less";
 import { Form, Input, Button, message, Checkbox, Card } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -26,6 +32,8 @@ const Login: React.FC = () => {
   };
 
   const [initialFormValues] = useState<any>({ username: "", password: "" });
+  const [test0, setTest0] = useState<any>("test0");
+  const [test1, setTest1] = useState<any>("test1");
 
   useEffect(() => {
     const rememberMeInfoStr = localStorage.getItem("rememberMeInfo");
@@ -40,8 +48,12 @@ const Login: React.FC = () => {
   }, []);
 
   // TODO用宏 Dev 实现更优雅
+  console.log("login render");
 
   const onFinish = async (values: any) => {
+    setTest0("test0 + 0");
+    setTest1("test1 + 1");
+    // return;
     // TODO 不优雅，待优化
     const { username, password, rememberMe } = values;
     // 登录
@@ -100,8 +112,54 @@ const Login: React.FC = () => {
     }
   };
 
+  const Compo = memo(({ tabName }: any) => {
+    const list = [];
+    console.log("Compo render=", tabName);
+    console.time("time");
+    if (tabName === "test2") {
+      for (let i = 0; i < 50000; i++) {
+        list.push(<span key={i}>{i}</span>);
+      }
+    }
+    console.timeEnd("time");
+
+    return (
+      <div style={{ color: "black" }}>
+        {tabName === "test1" && <div>test1</div>}
+        {tabName === "test2" && <p>{list}</p>}
+        {tabName === "test3" && <div>test3</div>}
+      </div>
+    );
+  });
+
+  Compo.displayName = "Compo";
+
+  const tabList = ["test1", "test2", "test3"];
+  const [activeTab, setActiveTab] = useState(tabList[0]);
+  const [activeTabName, setActiveTabName] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
+  console.log("activeTab=", activeTab, "isPending=", isPending);
   return (
     <div className="login-wrapper">
+      <p>
+        {tabList.map((tabName) => {
+          return (
+            <span
+              key={tabName}
+              style={{ color: activeTabName === tabName ? "red" : "black" }}
+              onClick={() => {
+                setActiveTabName(tabName);
+                startTransition(() => {
+                  setActiveTab(tabName);
+                });
+              }}
+            >
+              {tabName}
+            </span>
+          );
+        })}
+      </p>
+      <Compo tabName={activeTab} />
       <div className="hbox">
         <img
           className="img-logo"
@@ -110,7 +168,7 @@ const Login: React.FC = () => {
         ></img>
         <div className="title-container">
           {/* <span className='title-sub'>诊室听译</span> */}
-          <span className="title-main">AI 医生助理</span>
+          <span className="title-main">{test0 + ":" + test1}</span>
         </div>
       </div>
       <Card className="card-login">
